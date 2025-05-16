@@ -9,10 +9,10 @@ interface Props {
   onLongPress?: () => void;
 }
 
-export default function FAB({ label, onPress, onLongPress }: Props) {
+export default function FAB({ label, position, onPress, onLongPress }: Props) {
   return (
     <TouchableOpacity
-      style={styles.floatingButton}
+      style={position === "right" ? styles.floatingButton : styles.floatingLeft}
       onPress={onPress}
       onLongPress={onLongPress}
     >
@@ -30,6 +30,16 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 20,
     right: 20,
+    backgroundColor: "#65558F",
+    padding: 20,
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOpacity: 0.3,
+  },
+  floatingLeft: {
+    position: "absolute",
+    bottom: 20,
+    left: 20,
     backgroundColor: "#65558F",
     padding: 20,
     borderRadius: 15,
